@@ -18,8 +18,12 @@ describe('file to be tested', () => {
       assert.equal(1, 1)
     })
     it('shhould do something else', () => {
-      assert.deepEqual({ name: 'joe' }, { name: 'joe'})
+      assert.deepEqual({ name: 'joe' }, { name: 'joe' })
     })
     it('this is a pending test')
+  })
+
+  context('another function', () => {
+    it('should do something')
   })
 })
