@@ -35,7 +35,7 @@ describe('users', () => {
   })
 
   context('get', () => {
-    it('should check for an id', done => {
+    it('Should check for an id', done => {
       users.get(null, (err, result) => {
         expect(err).to.exist
         expect(err.message).to.equal('Invalid user id')
@@ -43,7 +43,7 @@ describe('users', () => {
       })
     })
 
-    it('should call findUserById with id and return result', done => {
+    it('Should call findUserById with id and return result', done => {
       sandbox.restore()
       let stub = sandbox.stub(mongoose.Model, 'findById').yields(null, {name: 'foo'})
 
@@ -57,7 +57,7 @@ describe('users', () => {
       })
     })
 
-    it('should catch error if there is one', done => {
+    it('Should catch error if there is one', done => {
       sandbox.restore()
       let stub = sandbox.stub(mongoose.Model, 'findById').yields(new Error('fake'))
 
@@ -73,7 +73,7 @@ describe('users', () => {
   })
 
   context('delete user', () => {
-    it('should check for an id using return', () => {
+    it('Should check for an id using return', () => {
       return users.delete().then(result => {
         throw new Error('unexpected success')
       }).catch(ex => {
@@ -82,11 +82,11 @@ describe('users', () => {
       })
     })
 
-    it('should check for error using eventually', () => {
+    it('Should check for error using eventually', () => {
       return expect(users.delete()).to.eventually.be.rejectedWith('Invalid id')
     })
 
-    it('should call User.remove', async () => {
+    it('Should call User.remove', async () => {
       let result = await users.delete(123)
 
       expect(result).to.equal('fake_remove_result')
