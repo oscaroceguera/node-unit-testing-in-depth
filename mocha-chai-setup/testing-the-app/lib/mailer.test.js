@@ -10,7 +10,7 @@ const rewire = require('rewire')
 var sandbox = sinon.sandbox.create()
 var mailer = rewire('./mailer')
 
-describe.only('mailer', () => {
+describe('mailer', () => {
   let emailStub
 
   beforeEach(() => {
